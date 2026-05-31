@@ -1,9 +1,7 @@
 use clap::{Parser, Subcommand};
 
 // 导入 lib 中的公共接口
-use clap_todo::{
-    任务条目, 修改任务内容, 列出任务, 删除任务, 标记完成状态, 添加任务
-};
+use clap_todo::{修改任务内容, 列出任务, 删除任务, 标记完成状态, 添加任务};
 
 #[derive(Parser)]
 #[command(name = "clap_todo")]
