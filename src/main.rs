@@ -6,7 +6,7 @@ use clap_todo::{
 };
 
 #[derive(Parser)]
-#[command(name = "td")]
+#[command(name = "clap_todo")]
 #[command(about = "简单的任务管理器", long_about = None)]
 struct 命令行 {
     #[command(subcommand)]
