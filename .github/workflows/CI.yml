@@ -1,0 +1,21 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            # 安装多个 Rust 工具（如果提供预编译二进制，会极快）
+            - uses: brndnmtthws/rust-action-cargo-binstall@v1
+              with:
+                  packages: cargo-tarpaulin sccache cargo-watch
+
+            # 之后可以直接使用这些工具，例如：
+            - name: Run tests with coverage
+              run: cargo tarpaulin --out Xml
+
+            - name: Start sccache
+              run: sccache --start-server

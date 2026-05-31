@@ -8,3 +8,12 @@ clap = { version = "4.6.1", features = ["derive"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.150"
 tempfile = "3.27.0"
+
+[package.metadata.binstall]
+# 下载 URL 模板（{repo} 会自动填充为你的仓库地址，如 https://github.com/你的用户名/clap_todo）
+pkg-url = "{repo}/releases/download/{version}/clap_todo-{target}.tar.gz"
+# 打包格式
+pkg-fmt = "tgz"
+# 压缩包内的二进制文件所在目录（相对于根目录）
+# 假设打包后的结构是：clap_todo-x86_64-unknown-linux-gnu/clap_todo
+bin-dir = "clap_todo-{target}"
