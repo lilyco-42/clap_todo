@@ -15,7 +15,9 @@ jobs:
 
             # 之后可以直接使用这些工具，例如：
             - name: Run tests with coverage
-              run: cargo tarpaulin --out Xml -- --test-threads=1
+              run: |
+                  export RUST_TEST_THREADS=1
+                  cargo tarpaulin --out Xml -- --test-threads=1
 
             - name: Start sccache
               run: sccache --start-server
